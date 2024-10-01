@@ -1,0 +1,21 @@
+<!-- studies/templates/studies/view_study.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Study</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="view-page">
+        <h1>View Study</h1>
+        <p><strong>Study Name:</strong> {{ study.study_name }}</p>
+        <p><strong>Study Phase:</strong> {{ study.study_phase }}</p>
+        <p><strong>Sponsor Name:</strong> {{ study.sponsor_name }}</p>
+        <p><strong>Study Description:</strong> {{ study.study_description }}</p>
+        <a href="{% url 'main_view' %}">Back to Main View</a>
+    </div>
+</body>
+</html>

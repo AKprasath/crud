@@ -1,0 +1,30 @@
+<!-- studies/templates/studies/add_study.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Study</title>
+</head>
+<body>
+    <h1>Add Study</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="study_name">Study Name:</label>
+        <input type="text" id="study_name" name="study_name" required><br>
+        <label for="study_description">Study Description:</label>
+        <textarea id="study_description" name="study_description" required></textarea><br>
+        <label for="study_phase">Study Phase:</label>
+        <select id="study_phase" name="study_phase" required>
+            <option value="Phase I">Phase I</option>
+            <option value="Phase II">Phase II</option>
+            <option value="Phase III">Phase III</option>
+            <option value="Phase IV">Phase IV</option>
+        </select><br>
+        <label for="sponsor_name">Sponsor Name:</label>
+        <input type="text" id="sponsor_name" name="sponsor_name" required><br>
+        <button type="submit">Save</button>
+        <a href="{% url 'main_view' %}">Cancel</a>
+    </form>
+</body>
+</html>

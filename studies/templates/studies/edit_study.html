@@ -1,0 +1,38 @@
+<!-- studies/templates/studies/edit_study.html -->
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Study</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="edit-page">
+        <h1>Edit Study</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label for="study_name">Study Name:</label>
+            <input type="text" id="study_name" name="study_name" value="{{ study.study_name }}" required>
+
+            <label for="study_description">Study Description:</label>
+            <textarea id="study_description" name="study_description" required>{{ study.study_description }}</textarea>
+
+            <label for="study_phase">Study Phase:</label>
+            <select id="study_phase" name="study_phase" required>
+                <option value="Phase I" {% if study.study_phase == "Phase I" %}selected{% endif %}>Phase I</option>
+                <option value="Phase II" {% if study.study_phase == "Phase II" %}selected{% endif %}>Phase II</option>
+                <option value="Phase III" {% if study.study_phase == "Phase III" %}selected{% endif %}>Phase III</option>
+                <option value="Phase IV" {% if study.study_phase == "Phase IV" %}selected{% endif %}>Phase IV</option>
+            </select>
+
+            <label for="sponsor_name">Sponsor Name:</label>
+            <input type="text" id="sponsor_name" name="sponsor_name" value="{{ study.sponsor_name }}" required>
+
+            <button type="submit">Update</button>
+            <a href="{% url 'main_view' %}">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>
